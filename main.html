@@ -1,13 +1,1043 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OneKarigar - India's most trusted tech-enabled skilled services platform connecting customers with verified construction and interior karigars. Transparent pricing, architect-led supervision, and written warranty.">
+    <meta name="keywords" content="construction services, interior services, verified karigars, carpenters, plumbers, electricians, home renovation, modular kitchen, false ceiling, OneKarigar">
+    <meta name="author" content="OneKarigar">
+    <title>OneKarigar - Trusted Skilled Services Platform | Verified Karigars</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #FF6B35;
+            --secondary-color: #004E89;
+            --accent-color: #F77F00;
+            --dark-color: #1A1A2E;
+            --light-gray: #F4F4F9;
+            --text-dark: #2D2D2D;
+            --text-light: #6C757D;
+            --success-color: #28A745;
+            --gradient-1: linear-gradient(135deg, #FF6B35 0%, #F77F00 100%);
+            --gradient-2: linear-gradient(135deg, #004E89 0%, #1A659E 100%);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        /* Header & Navigation */
+        .navbar {
+            padding: 0.1rem 0;
+            background: white;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 0.1rem 0;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-dark) !important;
+            padding: 0.5rem 1rem !important;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .btn-primary-custom {
+            background: var(--gradient-1);
+            border: none;
+            padding: 0.75rem 1.75rem;
+            font-weight: 600;
+            border-radius: 50px;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            color: white;
+        }
+        
+        .btn-secondary-custom {
+            background: var(--gradient-2);
+            border: none;
+            padding: 0.75rem 1.75rem;
+            font-weight: 600;
+            border-radius: 50px;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .btn-secondary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            color: white;
+        }
+        
+        .btn-outline-custom {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1.75rem;
+            font-weight: 600;
+            border-radius: 50px;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-custom:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #004E89 0%, #1A659E 50%, #2A7FB8 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0 60px;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero-content .lead {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        
+        .hero-stats {
+            margin-top: 3rem;
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Problem vs Solution */
+        .comparison-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            height: 100%;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease;
+        }
+        
+        .comparison-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .comparison-card.problem {
+            border-left: 4px solid #DC3545;
+        }
+        
+        .comparison-card.solution {
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .comparison-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .comparison-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .comparison-card ul li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .comparison-card ul li i {
+            margin-top: 0.25rem;
+            font-size: 1.1rem;
+        }
+        
+        .problem ul li i {
+            color: #DC3545;
+        }
+        
+        .solution ul li i {
+            color: var(--success-color);
+        }
+        
+        /* How It Works */
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-1);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .process-step h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .process-step p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        /* Service Cards */
+        .service-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .service-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .service-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        /* Competitive Advantage */
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .advantage-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .advantage-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+        
+        .advantage-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .advantage-item h5 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .advantage-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        /* Business Model */
+        .business-model {
+            background: var(--light-gray);
+        }
+        
+        .revenue-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+        }
+        
+        .revenue-card i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .revenue-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .revenue-card p {
+            color: var(--text-light);
+            margin: 0;
+        }
+        
+        /* Vision Section */
+        .vision-section {
+            background: var(--gradient-2);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .vision-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .vision-section p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+        
+        /* Contact Form */
+        .contact-section {
+            background: var(--light-gray);
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-control, .form-select {
+            padding: 0.875rem 1rem;
+            border: 2px solid #E9ECEF;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.15);
+        }
+        
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-brand {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-stats {
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content .lead {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* Lazy Loading Placeholder */
+        img[loading="lazy"] {
+            background: var(--light-gray);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#home">OneKarigar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#why-us">Why Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="#contact" class="btn btn-primary-custom">Get Quote</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 hero-content fade-in-up">
+                    <h1>India's Most Trusted Skilled Services Platform</h1>
+                    <p class="lead">Connect with verified construction and interior karigars under one trusted brand. Transparent pricing, architect-led supervision, and written warranty guaranteed.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#contact" class="btn btn-primary-custom btn-lg">Request Service</a>
+                        <a href="#how-it-works" class="btn btn-outline-custom btn-lg">Learn More</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3>500+</h3>
+                            <p>Verified Karigars</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>1000+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>95%</h3>
+                            <p>Customer Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="section-title">What is OneKarigar?</h2>
+                    <p class="section-subtitle">OneKarigar is a tech-enabled skilled services platform that connects customers with verified construction and interior karigars under one trusted brand.</p>
+                </div>
+            </div>
+            <div class="row g-4 mt-4">
+                <div class="col-lg-6">
+                    <div class="comparison-card problem">
+                        <h3><i class="fas fa-exclamation-triangle me-2"></i>Problems We Solve</h3>
+                        <ul>
+                            <li>
+                                <i class="fas fa-times-circle"></i>
+                                <span>No fixed pricing or transparency in costs</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-times-circle"></i>
+                                <span>No bills, receipts, or warranty on work done</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-times-circle"></i>
+                                <span>Poor workmanship and unprofessional behavior</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-times-circle"></i>
+                                <span>Zero accountability after project completion</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-times-circle"></i>
+                                <span>Customers managing multiple unreliable vendors</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="comparison-card solution">
+                        <h3><i class="fas fa-check-circle me-2"></i>OneKarigar Solution</h3>
+                        <ul>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Single point of contact for all services</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Verified and rated professional karigars</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>100% transparent pricing with detailed quotations</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Architect-led supervision for quality assurance</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Written warranty and dedicated after-service support</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" style="background: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-title">How OneKarigar Works</h2>
+            <p class="section-subtitle">A seamless 7-step process that ensures quality, transparency, and accountability</p>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Raise Request</h4>
+                        <p>Customer submits a service request through our platform</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Scope Evaluation</h4>
+                        <p>We evaluate the project scope and provide a detailed quotation</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Karigar Assignment</h4>
+                        <p>Work is assigned to our verified and skilled karigar</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Supervised Execution</h4>
+                        <p>Project execution under expert architect supervision</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <h4>Payment Collection</h4>
+                        <p>OneKarigar handles all payment processing securely</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <h4>Milestone Payment</h4>
+                        <p>Karigars are paid after completing project milestones</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-number">7</div>
+                        <h4>Warranty & Support</h4>
+                        <p>Written warranty with dedicated after-service support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive construction and interior solutions delivered by verified professionals</p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <h4>Carpentry & Furniture</h4>
+                        <p>Custom furniture, cabinets, and woodwork designed and built by expert carpenters</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-border-none"></i>
+                        </div>
+                        <h4>False Ceilings</h4>
+                        <p>Gypsum, PVC, and WPC ceiling installation with modern designs and durability</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <h4>Civil Work</h4>
+                        <p>Wall punning, plastering, and minor civil construction services</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h4>Electrical Services</h4>
+                        <p>Complete electrical wiring, fixtures, and troubleshooting solutions</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <h4>Plumbing Services</h4>
+                        <p>Installation, repair, and maintenance of plumbing systems</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-roller"></i>
+                        </div>
+                        <h4>Painting Services</h4>
+                        <p>Professional interior and exterior painting with quality materials</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose OneKarigar -->
+    <section id="why-us" style="background: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-title">Why Choose OneKarigar?</h2>
+            <p class="section-subtitle">We stand apart from unorganized vendors with our tech-enabled, quality-focused approach</p>
+            <div class="advantage-grid">
+                <div class="advantage-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h5>Organized Brand</h5>
+                    <p>Professional, reliable service with quality checks and guarantees.</p>
+                </div>
+                <div class="advantage-item">
+                    <i class="fas fa-user-check"></i>
+                    <h5>Verified Karigars</h5>
+                    <p>Thorough background checks, skill verification, and ratings for every karigar.</p>
+                </div>
+                <div class="advantage-item">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h5>Transparent Pricing</h5>
+                    <p>Clear quotations and milestone-based billing so you know exactly what you pay for.</p>
+                </div>
+                <div class="advantage-item">
+                    <i class="fas fa-drafting-compass"></i>
+                    <h5>Architect Supervision</h5>
+                    <p>Architect-led oversight ensures projects meet design and safety standards.</p>
+                </div>
+                <div class="advantage-item">
+                    <i class="fas fa-award"></i>
+                    <h5>Written Warranty</h5>
+                    <p>All work comes with a written warranty and dedicated after-sales support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model -->
+    <section class="business-model">
+        <div class="container">
+            <h2 class="section-title">Business Model</h2>
+            <p class="section-subtitle">Sustainable revenue streams that support quality service delivery</p>
+            <div class="row g-4 mt-4">
+                <div class="col-md-4">
+                    <div class="revenue-card">
+                        <i class="fas fa-percent"></i>
+                        <h4>Service Fees</h4>
+                        <p>Platform service fees applied to project bookings for platform maintenance and support.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="revenue-card">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Partnerships</h4>
+                        <p>Strategic partnerships with suppliers and brands provide value-added services and margins.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="revenue-card">
+                        <i class="fas fa-bullhorn"></i>
+                        <h4>Premium Services</h4>
+                        <p>Premium design, supervision, and turnkey offerings for larger projects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision-section">
+        <div class="container">
+            <h2>Our Vision</h2>
+            <p>To bring trust, quality and professionalism to every home improvement project in India by empowering skilled karigars with technology and customer-centric processes.</p>
+            <a href="#contact" class="btn btn-secondary-custom mt-3">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title text-center">Get a Quote</h2>
+            <p class="section-subtitle text-center">Share project details and our team will get back with a transparent quotation</p>
+            <div class="contact-form mt-4">
+                <form id="contactForm" novalidate>
+                    <div class="mb-3">
+                        <label class="form-label" for="name">Full Name</label>
+                        <input class="form-control" id="name" type="text" placeholder="Your full name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="phone">Phone Number</label>
+                        <input class="form-control" id="phone" type="tel" placeholder="Mobile number" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="email">Email</label>
+                        <input class="form-control" id="email" type="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="service">Service Required</label>
+                        <select class="form-select" id="service" required>
+                            <option value="">Select service</option>
+                            <option>Carpentry &amp; Furniture</option>
+                            <option>False Ceilings</option>
+                            <option>Civil Work</option>
+                            <option>Electrical Services</option>
+                            <option>Plumbing Services</option>
+                            <option>Painting Services</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="message">Project Details</label>
+                        <textarea class="form-control" id="message" rows="4" placeholder="Brief description"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary-custom">Submit Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-4">
+                    <div class="footer-brand">OneKarigar</div>
+                    <p class="text-white-50">Trusted skilled services across India. Transparent pricing, verified karigars, and written warranties.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h5>Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#how-it-works">How it Works</a></li>
+                        <li><a href="#services">Services</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Support</h5>
+                    <ul class="footer-links">
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Warranty</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 text-md-end">
+                    <h5>Contact</h5>
+                    <p class="text-white-50 mb-1">support@onekarigar.in</p>
+                    <p class="text-white-50 mb-0">+91 90000 00000</p>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.06);">
+            <div class="text-center small">© 2026 OneKarigar. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar shrink on scroll
+        const navbar = document.getElementById('mainNav');
+        const onScroll = () => {
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        };
+        document.addEventListener('scroll', onScroll);
+        onScroll();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Simple form handler
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // Simple validation
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            if (!name || !phone) {
+                alert('Please provide your name and phone number.');
+                return;
+            }
+            // Placeholder: In production, submit via fetch to backend endpoint
+            alert('Thanks! Your request has been submitted. We will contact you soon.');
+            this.reset();
+        });
+    </script>
+</body>
 </html>

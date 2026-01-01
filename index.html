@@ -14,76 +14,831 @@
 </head>
 <style>
     :root {
-    --primary-color: #0b132b; /* Navy */
-    --accent-color: #ffc107;  /* Construction Yellow */
-    --text-muted: #6c757d;
-}
+        --primary-color: #0b132b;
+        --secondary-color: #1e3a5f;
+        --accent-color: #ffc107;
+        --accent-hover: #ffb300;
+        --text-dark: #2c3e50;
+        --text-muted: #6c757d;
+        --bg-light: #f8f9fa;
+        --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+        --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+        --shadow-lg: 0 8px 32px rgba(0,0,0,0.18);
+    }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    scroll-behavior: smooth;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(rgba(11, 19, 43, 0.8), rgba(11, 19, 43, 0.8)), 
-                url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1920&q=80');
-    background-size: cover;
-    background-position: center;
-    min-height: 80vh;
-}
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: var(--text-dark);
+        scroll-behavior: smooth;
+        line-height: 1.6;
+    }
 
-.service-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 15px;
-}
+    /* Navbar Enhancements */
+    .navbar {
+        padding: 0.75rem 0;
+        backdrop-filter: blur(10px);
+        background: rgba(11, 19, 43, 0.95) !important;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        transition: all 0.3s ease;
+    }
 
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
-}
+    .navbar-brand {
+        font-size: 1.75rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        transition: transform 0.3s ease;
+    }
 
-/* Step Numbers for Process */
-.step-num {
-    width: 50px;
-    height: 50px;
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    font-weight: bold;
-    font-size: 1.5rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .navbar-brand:hover {
+        transform: scale(1.05);
+    }
 
-/* Navbar Branding */
-.navbar-brand {
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-}
+    .nav-link {
+        font-weight: 500;
+        margin: 0 0.5rem;
+        padding: 0.5rem 1rem !important;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        position: relative;
+    }
 
-.nav-link {
-    font-weight: 500;
-    margin: 0 10px;
-}
+    .nav-link:not(.btn)::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        transform: translateX(-50%);
+        transition: width 0.3s ease;
+    }
 
-/* Animations */
-@keyframes fadeInUp {
-    from {
+    .nav-link:not(.btn):hover::after {
+        width: 60%;
+    }
+
+    .nav-link.btn {
+        background: var(--accent-color);
+        color: var(--primary-color) !important;
+        font-weight: 600;
+        padding: 0.6rem 1.75rem !important;
+        border-radius: 50px;
+        box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .nav-link.btn:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+    }
+
+    /* Hero Section */
+    .hero-section {
+        background: linear-gradient(135deg, rgba(11, 19, 43, 0.92), rgba(30, 58, 95, 0.88)), 
+                    url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 85vh;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 30% 50%, rgba(255, 193, 7, 0.1), transparent 50%);
+        pointer-events: none;
+    }
+
+    .hero-section h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .hero-section .lead {
+        font-size: 1.25rem;
+        line-height: 1.7;
+        opacity: 0.95;
+        text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .hero-section .btn {
+        font-size: 1.1rem;
+        padding: 0.875rem 2.25rem;
+        border-radius: 50px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    }
+
+    .hero-section .btn-warning {
+        background: var(--accent-color);
+        border: none;
+    }
+
+    .hero-section .btn-warning:hover {
+        background: var(--accent-hover);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 28px rgba(255, 193, 7, 0.4);
+    }
+
+    .hero-section .btn-outline-light {
+        border: 2px solid rgba(255,255,255,0.9);
+        color: white;
+    }
+
+    .hero-section .btn-outline-light:hover {
+        background: white;
+        color: var(--primary-color);
+        border-color: white;
+        transform: translateY(-3px);
+    }
+
+    /* Features Bar */
+    .features-bar {
+        background: white;
+        padding: 2rem 0;
+        box-shadow: var(--shadow-md);
+        position: relative;
+        z-index: 10;
+    }
+
+    .features-bar i {
+        font-size: 2.5rem;
+        display: block;
+    }
+
+    .features-bar p {
+        margin-top: 0.75rem;
+        font-size: 0.95rem;
+    }
+
+    /* Service Cards */
+    .service-card {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border-radius: 16px;
+        border: none;
+        overflow: hidden;
+        position: relative;
+        background: white;
+    }
+
+    .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+    }
+
+    .service-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .service-card:hover {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+    }
+
+    .service-card i {
+        transition: all 0.3s ease;
+    }
+
+    .service-card:hover i {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    /* Step Numbers */
+    .step-num {
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+        color: var(--primary-color);
+        font-weight: 700;
+        font-size: 1.75rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(255, 193, 7, 0.3);
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .step-num::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: inherit;
         opacity: 0;
-        transform: translateY(20px);
+        transform: scale(1.2);
+        transition: all 0.3s ease;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-header h1 {
-    animation: fadeInUp 0.8s ease-out;
-}
+    .step-num:hover::after {
+        opacity: 0.4;
+        transform: scale(1.5);
+    }
+
+    /* Section Styling */
+    section {
+        padding: 5rem 0;
+    }
+
+    section h2 {
+        font-size: 2.75rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    section h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+        border-radius: 2px;
+    }
+
+    /* About Section */
+    #about img {
+        border-radius: 20px;
+        box-shadow: var(--shadow-lg);
+        transition: transform 0.4s ease;
+    }
+
+    #about img:hover {
+        transform: scale(1.03);
+    }
+
+    #about ul li {
+        font-size: 1.05rem;
+        padding: 0.5rem 0;
+    }
+
+    #about ul li i {
+        font-size: 1.25rem;
+    }
+
+    /* Footer */
+    footer {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        position: relative;
+    }
+
+    footer h3, footer h5 {
+        font-weight: 700;
+    }
+
+    footer .input-group .form-control {
+        border: 2px solid rgba(255,255,255,0.2);
+        background: rgba(255,255,255,0.1);
+        color: white;
+        padding: 0.75rem 1rem;
+        border-radius: 50px 0 0 50px;
+    }
+
+    footer .input-group .form-control::placeholder {
+        color: rgba(255,255,255,0.6);
+    }
+
+    footer .input-group .form-control:focus {
+        background: rgba(255,255,255,0.15);
+        border-color: var(--accent-color);
+        color: white;
+        box-shadow: none;
+    }
+
+    footer .input-group .btn {
+        border-radius: 0 50px 50px 0;
+        padding: 0.75rem 1.75rem;
+        font-weight: 600;
+    }
+
+    footer a:hover {
+        color: var(--accent-color) !important;
+        text-decoration: none;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    header h1 {
+        animation: fadeInUp 1s ease-out;
+    }
+
+    header p {
+        animation: fadeInUp 1.2s ease-out;
+    }
+
+    header .btn {
+        animation: fadeInUp 1.4s ease-out;
+    }
+
+    /* Stats Section */
+    .stats-section {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+    }
+
+    .stat-card {
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .stat-card h3 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-card p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+
+    /* Problem-Solution Section */
+    .problem-solution-card {
+        border-radius: 16px;
+        padding: 2rem;
+        height: 100%;
+        transition: transform 0.3s ease;
+    }
+
+    .problem-card {
+        background: linear-gradient(135deg, #fff5f5, #ffffff);
+        border-left: 4px solid #dc3545;
+    }
+
+    .solution-card {
+        background: linear-gradient(135deg, #f0fdf4, #ffffff);
+        border-left: 4px solid #28a745;
+    }
+
+    .problem-solution-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .problem-solution-card ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .problem-solution-card ul li {
+        padding: 0.75rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+        background: white;
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+
+    .testimonial-card:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-5px);
+    }
+
+    .testimonial-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+
+    /* FAQ Section */
+    .faq-item {
+        background: white;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+        padding: 1.25rem 1.5rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        transition: background 0.3s ease;
+    }
+
+    .faq-question:hover {
+        background: var(--bg-light);
+    }
+
+    .faq-answer {
+        padding: 0 1.5rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .faq-answer.active {
+        padding: 1rem 1.5rem 1.5rem;
+        max-height: 500px;
+    }
+
+    .faq-icon {
+        transition: transform 0.3s ease;
+    }
+
+    .faq-icon.rotate {
+        transform: rotate(180deg);
+    }
+
+    /* CTA Banner */
+    .cta-banner {
+        background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+        padding: 4rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-banner::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+        opacity: 0.3;
+    }
+
+    /* Mobile Optimization */
+    .mobile-hidden {
+        display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+        .hero-section h1 {
+            font-size: 2.5rem;
+        }
+
+        section h2 {
+            font-size: 2.25rem;
+        }
+
+        section {
+            padding: 3rem 0;
+        }
+
+        .stat-card h3 {
+            font-size: 2.5rem;
+        }
+
+        .features-bar i {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-section {
+            min-height: 65vh;
+            background-attachment: scroll;
+        }
+
+        .hero-section h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .hero-section .lead {
+            font-size: 0.9rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.5;
+        }
+
+        .hero-section .btn {
+            font-size: 0.85rem;
+            padding: 0.65rem 1.25rem;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-section .mobile-stats h4 {
+            font-size: 1.25rem;
+        }
+
+        .hero-section .mobile-stats small {
+            font-size: 0.75rem;
+            white-space: nowrap;
+        }
+
+        .navbar-brand {
+            font-size: 1.25rem;
+        }
+
+        .navbar {
+            padding: 0.4rem 0;
+        }
+
+        section {
+            padding: 2rem 0;
+        }
+
+        section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        section h2::after {
+            width: 50px;
+            height: 3px;
+            bottom: -8px;
+        }
+
+        section p.fs-5 {
+            font-size: 0.95rem !important;
+        }
+
+        .features-bar {
+            padding: 1.25rem 0;
+        }
+
+        .features-bar i {
+            font-size: 1.5rem;
+        }
+
+        .features-bar p {
+            font-size: 0.75rem;
+            margin-top: 0.4rem;
+        }
+
+        .stat-card h3 {
+            font-size: 1.75rem;
+        }
+
+        .stat-card p {
+            font-size: 0.85rem;
+        }
+
+        .service-card {
+            padding: 1.25rem !important;
+        }
+
+        .service-card i {
+            font-size: 1.75rem !important;
+            margin-bottom: 0.75rem !important;
+        }
+
+        .service-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem !important;
+        }
+
+        .service-card p {
+            font-size: 0.85rem;
+        }
+
+        .step-num {
+            width: 50px;
+            height: 50px;
+            font-size: 1.35rem;
+        }
+
+        .step-num + h5 {
+            font-size: 1rem;
+            margin-top: 0.75rem !important;
+        }
+
+        .step-num + h5 + p {
+            font-size: 0.85rem;
+        }
+
+        .testimonial-card {
+            padding: 1.25rem;
+        }
+
+        .testimonial-card h6 {
+            font-size: 0.95rem;
+        }
+
+        .testimonial-card small {
+            font-size: 0.75rem;
+        }
+
+        .testimonial-card p {
+            font-size: 0.85rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            font-size: 1.25rem;
+        }
+
+        .problem-solution-card {
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-solution-card h4 {
+            font-size: 1.1rem;
+        }
+
+        .problem-solution-card ul li {
+            font-size: 0.85rem;
+            padding: 0.5rem 0;
+        }
+
+        .problem-solution-card ul li i {
+            font-size: 0.9rem;
+        }
+
+        .faq-question {
+            font-size: 0.95rem;
+            padding: 1rem 1.25rem;
+        }
+
+        .faq-answer p {
+            font-size: 0.85rem;
+        }
+
+        .cta-banner {
+            padding: 2.5rem 0;
+        }
+
+        .cta-banner h2 {
+            font-size: 1.5rem;
+        }
+
+        .cta-banner p {
+            font-size: 0.95rem !important;
+        }
+
+        #about ul li {
+            font-size: 0.9rem !important;
+        }
+
+        #about ul li i {
+            font-size: 1.1rem !important;
+        }
+
+        footer {
+            text-align: center;
+        }
+
+        footer h3 {
+            font-size: 1.35rem;
+        }
+
+        footer h5 {
+            font-size: 1.1rem;
+        }
+
+        footer p, footer small, footer li {
+            font-size: 0.85rem;
+        }
+
+        footer .col-md-4 {
+            text-align: center !important;
+        }
+
+        footer .ps-md-5 {
+            padding-left: 0 !important;
+        }
+
+        /* Better touch targets for mobile */
+        .nav-link {
+            padding: 0.65rem 0.9rem !important;
+            margin: 0.2rem 0;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            min-height: 44px;
+            padding: 0.65rem 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile menu improvements */
+        .navbar-collapse {
+            background: rgba(11, 19, 43, 0.98);
+            padding: 0.85rem;
+            border-radius: 10px;
+            margin-top: 0.85rem;
+        }
+
+        .mobile-hidden {
+            display: none;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .hero-section h1 {
+            font-size: 1.3rem;
+            line-height: 1.3;
+        }
+
+        .hero-section .lead {
+            font-size: 0.85rem;
+        }
+
+        .hero-section .btn {
+            font-size: 0.8rem;
+            padding: 0.6rem 1rem;
+        }
+
+        section {
+            padding: 1.75rem 0;
+        }
+
+        section h2 {
+            font-size: 1.35rem;
+        }
+
+        section p.fs-5 {
+            font-size: 0.9rem !important;
+        }
+
+        .stat-card h3 {
+            font-size: 1.5rem;
+        }
+
+        .stat-card p {
+            font-size: 0.8rem;
+        }
+
+        .d-flex.gap-3 {
+            flex-direction: column;
+            gap: 0.65rem !important;
+        }
+
+        .hero-section .d-flex.gap-3 a {
+            width: 100%;
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            font-size: 1.3rem;
+        }
+
+        .cta-banner p {
+            font-size: 0.9rem !important;
+        }
+    }
 </style>
 <body>
 
@@ -108,18 +863,33 @@ header h1 {
         <div class="container text-white">
             <div class="row">
                 <div class="col-lg-7">
-                    <h1 class="display-3 fw-bold mb-4">Construction & Interiors, <span class="text-warning">Simplified.</span></h1>
-                    <p class="lead mb-5">Get verified, high-quality Karigars for your home or office. Architect-led supervision with a written warranty.</p>
-                    <div class="d-flex gap-3">
+                    <h1 class="fw-bold mb-4">Construction & Interiors, <span class="text-warning">Simplified.</span></h1>
+                    <p class="lead mb-4">Get verified, high-quality Karigars for your home or office. Architect-led supervision with a written warranty.</p>
+                    <div class="d-flex gap-3 mb-4">
                         <a href="#services" class="btn btn-warning btn-lg px-4 fw-bold">Our Services</a>
                         <a href="#about" class="btn btn-outline-light btn-lg px-4">Learn More</a>
+                    </div>
+                    <!-- Stats moved here for better mobile view -->
+                    <div class="row g-3 mt-4 mobile-stats">
+                        <div class="col-4">
+                            <h4 class="text-warning fw-bold mb-1">500+</h4>
+                            <small>Verified Karigars</small>
+                        </div>
+                        <div class="col-4">
+                            <h4 class="text-warning fw-bold mb-1">1000+</h4>
+                            <small>Projects Done</small>
+                        </div>
+                        <div class="col-4">
+                            <h4 class="text-warning fw-bold mb-1">95%</h4>
+                            <small>Satisfaction</small>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="py-4 bg-light border-bottom">
+    <section class="features-bar border-bottom">
         <div class="container">
             <div class="row text-center g-4">
                 <div class="col-md-3 col-6">
@@ -142,54 +912,323 @@ header h1 {
         </div>
     </section>
 
-    <section id="about" class="py-5">
+    <!-- Problem vs Solution Section -->
+    <section id="problem-solution" class="py-5" style="background: var(--bg-light);">
         <div class="container">
-            <div class="row align-items-center py-5">
-                <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="Karigar at work" class="img-fluid rounded-4 shadow" loading="lazy">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Traditional Karigars vs OneKarigar</h2>
+                <p class="text-muted fs-5 mt-3">See the difference we make</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="problem-solution-card problem-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-times-circle text-danger fs-3 me-3"></i>
+                            <h4 class="fw-bold mb-0">Problems You Face</h4>
+                        </div>
+                        <ul>
+                            <li>
+                                <i class="fas fa-exclamation-circle text-danger"></i>
+                                <span>No fixed pricing or hidden charges</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-exclamation-circle text-danger"></i>
+                                <span>No bills, receipts, or warranty</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-exclamation-circle text-danger"></i>
+                                <span>Poor workmanship & unprofessional behavior</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-exclamation-circle text-danger"></i>
+                                <span>Zero accountability after work</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-exclamation-circle text-danger"></i>
+                                <span>Managing multiple unreliable vendors</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-lg-6 ps-lg-5 mt-4 mt-lg-0">
-                    <h2 class="fw-bold mb-4">Why Choose OneKarigar?</h2>
-                    <p class="text-muted">We solve the chaos of unorganized local vendors. No more ghosting, no more hidden costs, and no more poor workmanship.</p>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><i class="fas fa-circle-check text-warning me-2"></i> Single point of contact for all trades</li>
-                        <li class="mb-3"><i class="fas fa-circle-check text-warning me-2"></i> Transparent milestone-based payments</li>
-                        <li class="mb-3"><i class="fas fa-circle-check text-warning me-2"></i> Professional quality control and cleanup</li>
-                    </ul>
+                <div class="col-md-6">
+                    <div class="problem-solution-card solution-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-check-circle text-success fs-3 me-3"></i>
+                            <h4 class="fw-bold mb-0">OneKarigar Solution</h4>
+                        </div>
+                        <ul>
+                            <li>
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>100% transparent pricing with detailed quotations</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>Written warranty & proper documentation</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>Verified professionals with quality checks</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>Architect supervision & after-service support</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>Single point of contact for everything</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-5 bg-light">
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <h3 class="mb-2">500+</h3>
+                        <p>Verified Karigars</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <h3 class="mb-2">1000+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <h3 class="mb-2">95%</h3>
+                        <p>Customer Satisfaction</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <h3 class="mb-2">10+</h3>
+                        <p>Cities Covered</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="Professional karigar at work" class="img-fluid rounded-4 shadow" loading="lazy">
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <h2 class="fw-bold mb-4">Why Choose OneKarigar?</h2>
+                    <p class="text-muted fs-5 mb-4">We solve the chaos of unorganized local vendors. No more ghosting, no more hidden costs, and no more poor workmanship.</p>
+                    <ul class="list-unstyled mt-4">
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-circle-check text-warning me-3"></i>
+                            <span class="fs-6">Single point of contact for all trades</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-circle-check text-warning me-3"></i>
+                            <span class="fs-6">Transparent milestone-based payments</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-circle-check text-warning me-3"></i>
+                            <span class="fs-6">Professional quality control and cleanup</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-circle-check text-warning me-3"></i>
+                            <span class="fs-6">Architect-led supervision on every project</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn btn-warning btn-lg px-4 mt-3">Get Started Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-5" style="background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="fw-bold">Our Expertise</h2>
-                <p class="text-muted">Comprehensive solutions for every corner of your space.</p>
+                <p class="text-muted fs-5 mt-3">Comprehensive solutions for every corner of your space</p>
             </div>
-            <div class="row g-4">
+            <div class="row g-4 mt-2">
                 <div class="col-md-4">
                     <div class="card h-100 border-0 shadow-sm p-4 text-center service-card">
                         <i class="fas fa-hammer fa-3x text-warning mb-3"></i>
-                        <h4 class="fw-bold">Carpentry</h4>
-                        <p class="text-muted small">Custom furniture, modular kitchens, and wardrobe installations.</p>
+                        <h4 class="fw-bold mb-3">Carpentry & Furniture</h4>
+                        <p class="text-muted">Custom furniture, modular kitchens, wardrobes, and complete woodwork installations with precision craftsmanship.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100 border-0 shadow-sm p-4 text-center service-card">
                         <i class="fas fa-bolt fa-3x text-warning mb-3"></i>
-                        <h4 class="fw-bold">Electrical & Plumbing</h4>
-                        <p class="text-muted small">Full house wiring, fixing leakages, and smart home setups.</p>
+                        <h4 class="fw-bold mb-3">Electrical & Plumbing</h4>
+                        <p class="text-muted">Complete house wiring, fixture installations, pipe fittings, leak repairs, and smart home automation setups.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100 border-0 shadow-sm p-4 text-center service-card">
                         <i class="fas fa-paint-roller fa-3x text-warning mb-3"></i>
-                        <h4 class="fw-bold">Painting & Civil</h4>
-                        <p class="text-muted small">Wall punning, minor civil changes, and premium finishes.</p>
+                        <h4 class="fw-bold mb-3">Painting & Civil Work</h4>
+                        <p class="text-muted">Wall finishing, premium painting, minor civil changes, plastering, and modern texture applications.</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">What Our Customers Say</h2>
+                <p class="text-muted fs-5 mt-3">Real experiences from real customers</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="testimonial-avatar me-3">RS</div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Rajesh Sharma</h6>
+                                <small class="text-muted">Homeowner, Delhi</small>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="text-muted">"OneKarigar made my kitchen renovation stress-free. The carpenter was skilled, professional, and completed everything on time. The written warranty gave me peace of mind!"</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="testimonial-avatar me-3">PM</div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Priya Mehta</h6>
+                                <small class="text-muted">Business Owner, Pune</small>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="text-muted">"Finally found a reliable platform! The transparent pricing and architect supervision made my office renovation smooth. No hidden costs, no surprises."</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="testimonial-avatar me-3">AK</div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Amit Kumar</h6>
+                                <small class="text-muted">Property Developer, Jaipur</small>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="text-muted">"Used OneKarigar for 3 projects now. The quality of work and professionalism is unmatched. The milestone payment system is genius!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Frequently Asked Questions</h2>
+                <p class="text-muted fs-5 mt-3">Got questions? We've got answers</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>How does OneKarigar verify its karigars?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-muted">All karigars undergo thorough background checks, skill verification tests, and customer reviews before being onboarded. We also provide ongoing training and quality assessments.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>What is the pricing model?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-muted">We provide 100% transparent pricing with detailed quotations. You pay based on project milestones. No hidden costs, no surprises. Everything is documented clearly.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>What is covered under the warranty?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-muted">Our written warranty covers workmanship defects, material issues, and installation problems for a specified period (varies by service). We provide free repairs for covered issues.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Which cities do you serve?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-muted">We currently serve 10+ cities across India, primarily focusing on Tier-2 and Tier-3 cities. Contact us to check if we're available in your area.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>How long does a typical project take?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-muted">Project duration varies based on scope and complexity. We provide a detailed timeline during quotation. Our architect supervision ensures projects stay on schedule.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Can I get a free consultation?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-muted">Yes! We offer free consultations where we visit your site, understand your requirements, and provide a detailed quotation at no cost.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="container text-center position-relative">
+            <h2 class="fw-bold text-dark mb-3">Ready to Transform Your Space?</h2>
+            <p class="fs-5 text-dark mb-4">Get a free quote today and experience hassle-free construction services</p>
+            <a href="#contact" class="btn btn-dark btn-lg px-5">Get Free Quote</a>
         </div>
     </section>
 
@@ -197,63 +1236,156 @@ header h1 {
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="fw-bold">The OneKarigar Way</h2>
-                <p class="text-muted">How we ensure quality from start to finish.</p>
+                <p class="text-muted fs-5 mt-3">How we ensure quality from start to finish</p>
             </div>
-            <div class="row text-center">
-                <div class="col-md-3">
+            <div class="row text-center g-4 mt-4">
+                <div class="col-md-3 col-6">
                     <div class="step-num mb-3 mx-auto">1</div>
-                    <h5>Request</h5>
-                    <p class="small text-muted">Raise a request online</p>
+                    <h5 class="fw-bold mt-3">Request</h5>
+                    <p class="text-muted">Raise a request online or call us</p>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-6">
                     <div class="step-num mb-3 mx-auto">2</div>
-                    <h5>Evaluate</h5>
-                    <p class="small text-muted">Expert audit & quotation</p>
+                    <h5 class="fw-bold mt-3">Evaluate</h5>
+                    <p class="text-muted">Expert audit & detailed quotation</p>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-6">
                     <div class="step-num mb-3 mx-auto">3</div>
-                    <h5>Execute</h5>
-                    <p class="small text-muted">Supervised workmanship</p>
+                    <h5 class="fw-bold mt-3">Execute</h5>
+                    <p class="text-muted">Supervised professional workmanship</p>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-6">
                     <div class="step-num mb-3 mx-auto">4</div>
-                    <h5>Enjoy</h5>
-                    <p class="small text-muted">Warranty & after-care</p>
+                    <h5 class="fw-bold mt-3">Enjoy</h5>
+                    <p class="text-muted">Warranty & dedicated after-care</p>
                 </div>
             </div>
         </div>
     </section>
 
     <footer id="contact" class="bg-dark text-white py-5">
-        <div class="container">
-            <div class="row">
+        <div class="container py-4">
+            <div class="row g-4">
                 <div class="col-md-4">
                     <h3 class="fw-bold mb-4">ONE<span class="text-warning">KARIGAR</span></h3>
-                    <p class="text-secondary">Transforming the construction industry through tech and trust. Starting with Tier-2 and Tier-3 cities.</p>
+                    <p class="text-secondary fs-6 pe-3">Transforming the construction and interior services industry through technology, trust, and transparency. Starting with Tier-2 and Tier-3 cities across India.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white" style="font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white" style="font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white" style="font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+                    </div>
                 </div>
                 <div class="col-md-4 ps-md-5">
-                    <h5 class="mb-4">Quick Links</h5>
+                    <h5 class="mb-4 fw-bold">Quick Links</h5>
                     <ul class="list-unstyled text-secondary">
-                        <li><a href="#" class="text-decoration-none text-secondary">Privacy Policy</a></li>
-                        <li><a href="#" class="text-decoration-none text-secondary">Terms of Service</a></li>
-                        <li><a href="#" class="text-decoration-none text-secondary">Join as a Karigar</a></li>
+                        <li class="mb-2"><a href="#about" class="text-decoration-none text-secondary">About Us</a></li>
+                        <li class="mb-2"><a href="#services" class="text-decoration-none text-secondary">Our Services</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Terms of Service</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Join as a Karigar</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="mb-4">Book a Consultant</h5>
+                    <h5 class="mb-4 fw-bold">Book a Consultation</h5>
+                    <p class="text-secondary mb-3">Get a free quote for your project</p>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Phone Number">
-                        <button class="btn btn-warning" type="button">Call Me</button>
+                        <input type="tel" class="form-control" placeholder="Enter phone number" aria-label="Phone number">
+                        <button class="btn btn-warning fw-bold" type="button">Call Me</button>
                     </div>
+                    <small class="text-secondary">We'll call you within 24 hours</small>
                 </div>
             </div>
-            <hr class="mt-5 border-secondary">
-            <div class="text-center text-secondary small">
-                © 2024 OneKarigar Services Pvt Ltd. All Rights Reserved.
+            <hr class="mt-5 mb-4 border-secondary">
+            <div class="text-center text-secondary">
+                <small>© 2026 OneKarigar Services Pvt Ltd. All Rights Reserved.</small>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards and process steps
+        document.querySelectorAll('.service-card, .step-num').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(11, 19, 43, 1)';
+            } else {
+                navbar.style.background = 'rgba(11, 19, 43, 0.95)';
+            }
+        });
+
+        // FAQ Toggle Function
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('.faq-icon');
+            const allAnswers = document.querySelectorAll('.faq-answer');
+            const allIcons = document.querySelectorAll('.faq-icon');
+            
+            // Close all other FAQs
+            allAnswers.forEach(ans => {
+                if (ans !== answer) {
+                    ans.classList.remove('active');
+                }
+            });
+            
+            allIcons.forEach(ic => {
+                if (ic !== icon) {
+                    ic.classList.remove('rotate');
+                }
+            });
+            
+            // Toggle current FAQ
+            answer.classList.toggle('active');
+            icon.classList.toggle('rotate');
+        }
+
+        // Mobile menu auto-close on link click
+        document.querySelectorAll('.nav-link:not(.btn)').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                        toggle: false
+                    });
+                    bsCollapse.hide();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
