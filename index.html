@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneKarigar | Verified Construction & Interior Services</title>
+    <meta name="description" content="OneKarigar connects you with verified carpenters, electricians, and plumbers. Transparent pricing, architect-led supervision, and written warranty.">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    :root {
+    --primary-color: #0b132b; /* Navy */
+    --accent-color: #ffc107;  /* Construction Yellow */
+    --text-muted: #6c757d;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(11, 19, 43, 0.8), rgba(11, 19, 43, 0.8)), 
+                url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh;
+}
+
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+/* Step Numbers for Process */
+.step-num {
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Navbar Branding */
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin: 0 10px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header h1 {
+    animation: fadeInUp 0.8s ease-out;
+}
+</style>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">ONE<span class="text-warning">KARIGAR</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#process">How it Works</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-warning text-dark ms-lg-3 px-4" href="#contact">Book Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section d-flex align-items-center">
+        <div class="container text-white">
+            <div class="row">
+                <div class="col-lg-7">
+                    <h1 class="display-3 fw-bold mb-4">Construction & Interiors, <span class="text-warning">Simplified.</span></h1>
+                    <p class="lead mb-5">Get verified, high-quality Karigars for your home or office. Architect-led supervision with a written warranty.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#services" class="btn btn-warning btn-lg px-4 fw-bold">Our Services</a>
+                        <a href="#about" class="btn btn-outline-light btn-lg px-4">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-4 bg-light border-bottom">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md-3 col-6">
+                    <i class="fas fa-check-circle text-warning mb-2"></i>
+                    <p class="mb-0 fw-bold">Verified Karigars</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <i class="fas fa-shield-alt text-warning mb-2"></i>
+                    <p class="mb-0 fw-bold">Written Warranty</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <i class="fas fa-file-invoice-dollar text-warning mb-2"></i>
+                    <p class="mb-0 fw-bold">Fixed Pricing</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <i class="fas fa-user-tie text-warning mb-2"></i>
+                    <p class="mb-0 fw-bold">Architect Supervised</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center py-5">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="Karigar at work" class="img-fluid rounded-4 shadow" loading="lazy">
+                </div>
+                <div class="col-lg-6 ps-lg-5 mt-4 mt-lg-0">
+                    <h2 class="fw-bold mb-4">Why Choose OneKarigar?</h2>
+                    <p class="text-muted">We solve the chaos of unorganized local vendors. No more ghosting, no more hidden costs, and no more poor workmanship.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="fas fa-circle-check text-warning me-2"></i> Single point of contact for all trades</li>
+                        <li class="mb-3"><i class="fas fa-circle-check text-warning me-2"></i> Transparent milestone-based payments</li>
+                        <li class="mb-3"><i class="fas fa-circle-check text-warning me-2"></i> Professional quality control and cleanup</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Our Expertise</h2>
+                <p class="text-muted">Comprehensive solutions for every corner of your space.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 text-center service-card">
+                        <i class="fas fa-hammer fa-3x text-warning mb-3"></i>
+                        <h4 class="fw-bold">Carpentry</h4>
+                        <p class="text-muted small">Custom furniture, modular kitchens, and wardrobe installations.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 text-center service-card">
+                        <i class="fas fa-bolt fa-3x text-warning mb-3"></i>
+                        <h4 class="fw-bold">Electrical & Plumbing</h4>
+                        <p class="text-muted small">Full house wiring, fixing leakages, and smart home setups.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 text-center service-card">
+                        <i class="fas fa-paint-roller fa-3x text-warning mb-3"></i>
+                        <h4 class="fw-bold">Painting & Civil</h4>
+                        <p class="text-muted small">Wall punning, minor civil changes, and premium finishes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">The OneKarigar Way</h2>
+                <p class="text-muted">How we ensure quality from start to finish.</p>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="step-num mb-3 mx-auto">1</div>
+                    <h5>Request</h5>
+                    <p class="small text-muted">Raise a request online</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="step-num mb-3 mx-auto">2</div>
+                    <h5>Evaluate</h5>
+                    <p class="small text-muted">Expert audit & quotation</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="step-num mb-3 mx-auto">3</div>
+                    <h5>Execute</h5>
+                    <p class="small text-muted">Supervised workmanship</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="step-num mb-3 mx-auto">4</div>
+                    <h5>Enjoy</h5>
+                    <p class="small text-muted">Warranty & after-care</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3 class="fw-bold mb-4">ONE<span class="text-warning">KARIGAR</span></h3>
+                    <p class="text-secondary">Transforming the construction industry through tech and trust. Starting with Tier-2 and Tier-3 cities.</p>
+                </div>
+                <div class="col-md-4 ps-md-5">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled text-secondary">
+                        <li><a href="#" class="text-decoration-none text-secondary">Privacy Policy</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Terms of Service</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Join as a Karigar</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-4">Book a Consultant</h5>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Phone Number">
+                        <button class="btn btn-warning" type="button">Call Me</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-5 border-secondary">
+            <div class="text-center text-secondary small">
+                © 2024 OneKarigar Services Pvt Ltd. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
