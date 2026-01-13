@@ -7,11 +7,81 @@
     <title>OneKarigar | Verified Construction & Interior Services</title>
     <meta name="description"
         content="OneKarigar connects you with verified carpenters, electricians, and plumbers. Transparent pricing, architect-led supervision, and written warranty.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourdomain.com/"> <!-- Replace with your production URL -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <meta name="theme-color" content="#0b132b">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="OneKarigar | Verified Construction & Interior Services">
+    <meta property="og:description" content="Get verified, high-quality Karigars for construction, interiors, plumbing and electrical work with architect-led supervision and written warranty.">
+    <meta property="og:url" content="https://www.onekarigar.com/">
+    <meta property="og:image" content="https://www.onekarigar.com/assets/images/og-image.jpg"> <!-- Replace with a real OG image URL -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OneKarigar | Verified Construction & Interior Services">
+    <meta name="twitter:description" content="Get verified, high-quality Karigars for construction, interiors, plumbing and electrical work with architect-led supervision and written warranty.">
+    <meta name="twitter:image" content="https://www.onekarigar.com/assets/images/og-image.jpg">
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+    
+        {
+          "@type": "WebSite",
+          "url": "https://www.onekarigar.com/",
+          "name": "OneKarigar",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.onekarigar.com/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How does OneKarigar verify its karigars?",
+              "acceptedAnswer": { "@type": "Answer", "text": "All karigars undergo thorough background checks, skill verification tests, and customer reviews before being onboarded. We also provide ongoing training and quality assessments." }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the pricing model?",
+              "acceptedAnswer": { "@type": "Answer", "text": "We provide 100% transparent pricing with detailed quotations. You pay based on project milestones. No hidden costs, no surprises. Everything is documented clearly." }
+            },
+            {
+              "@type": "Question",
+              "name": "What is covered under the warranty?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Our written warranty covers workmanship defects, material issues, and installation problems for a specified period (varies by service). We provide free repairs for covered issues." }
+            },
+            {
+              "@type": "Question",
+              "name": "Which cities do you serve?",
+              "acceptedAnswer": { "@type": "Answer", "text": "We currently serve 10+ cities across India, primarily focusing on Tier-2 and Tier-3 cities. Contact us to check if we're available in your area." }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does a typical project take?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Project duration varies based on scope and complexity. We provide a detailed timeline during quotation. Our architect supervision ensures projects stay on schedule." }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I get a free consultation?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer free consultations where we visit your site, understand your requirements, and provide a detailed quotation at no cost." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <style>
     :root {
@@ -583,6 +653,12 @@
         transform: rotate(180deg);
     }
 
+    #services h3{
+
+        font-size: 1.2rem
+
+    }
+
     /* CTA Banner */
     .cta-banner {
         background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
@@ -1111,8 +1187,8 @@
             <div class="row g-4 mt-2">
                 <div class="col-md-4">
                     <div class="card h-100 border-0 shadow-sm p-4 service-card">
-                        <i class="fas fa-hammer fa-3x text-warning mb-3"></i>
-                        <h5 class="fw-bold mb-3 text-center ">Carpentry & Interior Work</h5>
+                        <i class="fas fa-hammer fa-2x text-warning mb-3" aria-hidden="true"></i>
+                        <h3 class="fw-bold mb-3 text-center">Carpentry & Interior Work</h3>
                         <ul>
                             <li class="text-muted">Modular Kitchens</li>
                             <li class="text-muted">Wardrobes & Storage Units</li>
@@ -1126,8 +1202,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100 border-0 shadow-sm p-4 service-card">
-                        <i class="fas fa-wrench fa-3x text-warning mb-3"></i>
-                        <h5 class="fw-bold mb-3 text-center">Plumbing & Sanitary Services</h5>
+                        <i class="fas fa-wrench fa-2x text-warning mb-3" aria-hidden="true"></i>
+                        <h3 class="fw-bold mb-3 text-center">Plumbing & Sanitary Services</h3>
                          <ul>
                             <li class="text-muted">Bathroom & Kitchen Plumbing</li>
                             <li class="text-muted">Leak Detection & Pipe Repair</li>
@@ -1140,8 +1216,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100 border-0 shadow-sm p-4 service-card">
-                        <i class="fas fa-bolt fa-3x text-warning mb-3"></i>
-                        <h5 class="fw-bold mb-3 text-center">Electrical Services </h5>
+                        <i class="fas fa-bolt fa-2x text-warning mb-3" aria-hidden="true"></i>
+                        <h3 class="fw-bold mb-3 text-center">Electrical Services</h3>
                         <ul>
                             <li class="text-muted">Wiring & Rewiring</li>
                             <li class="text-muted">Switchboards & Controls</li>
@@ -1155,8 +1231,8 @@
 
                 <div class="col-md-4">
                     <div class="card h-100 border-0 shadow-sm p-4 service-card">
-                        <i class="fas fa-hard-hat fa-3x text-warning mb-3"></i>
-                        <h5 class="fw-bold mb-3 text-center">Civil & Masonry Works  </h5>
+                        <i class="fas fa-hard-hat fa-2x text-warning mb-3" aria-hidden="true"></i>
+                        <h3 class="fw-bold mb-3 text-center">Civil & Masonry Works</h3>
                         <ul>
                             <li class="text-muted">Tile & Marble Laying</li>
                             <li class="text-muted"> Wall Demolition & Reconstruction </li>
@@ -1170,8 +1246,8 @@
 
                    <div class="col-md-4">
                     <div class="card h-100 border-0 shadow-sm p-4 service-card">
-                        <i class="fas fa-paint-roller fa-3x text-warning mb-3"></i>
-                        <h5 class="fw-bold mb-3 text-center">Renovation & Makeovers  </h4>
+                        <i class="fas fa-paint-roller fa-2x text-warning mb-3" aria-hidden="true"></i>
+                        <h3 class="fw-bold mb-3 text-center">Renovation & Makeovers</h3>
                         <ul>
                             <li class="text-muted">Full Home Renovation </li>
                             <li class="text-muted"> Kitchen & Bathroom Makeovers </li>
@@ -1184,8 +1260,8 @@
 
                    <div class="col-md-4">
                     <div class="card h-100 border-0 shadow-sm p-4 service-card">
-                        <i class="fas fa-building fa-3x text-warning mb-3"></i>
-                        <h5 class="fw-bold mb-3 text-center"> End-To-End Civil Construction (Turnkey Projects) </h4>
+                        <i class="fas fa-building fa-2x text-warning mb-3" aria-hidden="true"></i>
+                        <h3 class="fw-bold mb-3 text-center">End-To-End Civil Construction (Turnkey Projects)</h3>
                         <ul>
                             <li class="text-muted">Structural Work & RCC </li>
                             <li class="text-muted"> Masonry & Brickwork </li>
@@ -1430,16 +1506,16 @@
                     <h5 class="mb-4 fw-bold">Book a Consultation</h5>
                     <p class="text-secondary mb-3">Get a free quote for your project</p>
                     <div class="input-group mb-3">
-                        <input type="tel" class="form-control" placeholder="Enter phone number"
+                        <input id="consultation-phone" type="tel" class="form-control" placeholder="Enter phone number"
                             aria-label="Phone number">
-                        <button class="btn btn-warning fw-bold" type="button">Call Me</button>
+                        <button id="call-me-btn" class="btn btn-warning fw-bold" type="button">Call Me</button>
                     </div>
-                    <small class="text-secondary">We'll call you within 24 hours</small>
+                    <small class="text-secondary">We'll call you within 24 hours — or click <strong>Call Me</strong> to start a WhatsApp chat.</small>
                 </div>
             </div>
             <hr class="mt-5 mb-4 border-secondary">
             <div class="text-center text-secondary">
-                <small>© 2026 OneKarigar Services Pvt Ltd. All Rights Reserved.</small>
+                <small>© 2026 OneKarigar Technologies Pvt Ltd. All Rights Reserved.</small>
             </div>
         </div>
     </footer>
@@ -1528,6 +1604,21 @@
                 }
             });
         });
+
+        // WhatsApp 'Call Me' handler: opens WhatsApp chat with pre-filled message and optional entered phone
+        (function () {
+            const callBtn = document.getElementById('call-me-btn');
+            const phoneInput = document.getElementById('consultation-phone');
+            if (callBtn) {
+                callBtn.addEventListener('click', function () {
+                    const userPhone = phoneInput ? phoneInput.value.trim() : '';
+                    const preMsg = 'Hi OneKarigar, I need a consultation for my project.';
+                    const msg = userPhone ? preMsg + ' My phone: ' + userPhone : preMsg;
+                    const waUrl = 'https://wa.me/77748943561?text=' + encodeURIComponent(msg);
+                    window.open(waUrl, '_blank', 'noopener');
+                });
+            }
+        })();
     </script>
 </body>
 
