@@ -1,0 +1,20 @@
+Contact: mailto:security@onekarigar.com
+Contact: tel:+91-77748943561
+Expires: 2027-02-12T23:59:59.000Z
+Preferred-Languages: en, hi
+Canonical: https://www.onekarigar.com/.well-known/security.txt
+
+# Our security policy
+Policy: https://www.onekarigar.com/security-policy
+
+# Our security acknowledgments page
+Acknowledgments: https://www.onekarigar.com/security-acknowledgments
+
+# Encryption key
+Encryption: https://www.onekarigar.com/pgp-key.txt
+
+# Hiring
+Hiring: https://www.onekarigar.com/careers
+
+# Please report security vulnerabilities responsibly
+# We appreciate responsible disclosure and will respond within 48 hours

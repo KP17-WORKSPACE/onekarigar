@@ -1,0 +1,18 @@
+/* TEAM */
+Site: OneKarigar Technologies Pvt Ltd
+Location: India
+Contact: contact@onekarigar.com
+
+/* SITE */
+Standards: HTML5, CSS3, JavaScript ES6+
+Components: Bootstrap 5, Font Awesome 6
+Software: VS Code, GitHub
+
+/* MISSION */
+Transforming the construction and interior services industry through technology, trust, and transparency.
+Connecting verified skilled workers (karigars) with customers across India.
+
+Last update: 2026-02-12
+Language: English / Hindi
+Doctype: HTML5
+IDE: Visual Studio Code
